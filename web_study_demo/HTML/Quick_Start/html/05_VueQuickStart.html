@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Quick Start</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h4>{{ message }}</h4>
+        <img src="../resources/image/light_bulb.png" width=15%>
+        <a :href="url" target="_blank">链接-1</a>  
+        <!-- v-bind: = : -->
+         <input type="text" v-model="url">
+         <button v-on:click="changeUrl()"> 点击修改链接 </button>
+    </div>
+</body>
+<script>
+    new Vue({ 
+        el: "#app", // 定义Vue接管的区域
+        data: {
+            message: "Hello Vue!",
+            url: "https://www.baidu.com",
+        },
+        methods: {
+            // changeUrl: (()=>{
+            //     console.log("changeUrl");
+            //     this.url = "https://www.bing.com";
+            // })
+            changeUrl() {
+                console.log("changeUrl");
+                this.url = "https://www.bing.com";
+            }
+        }
+    })
+</script>
+
+</html>
+
+<style>
+    #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    #app img:hover{
+        width: 20%;
+    }
+</style>
