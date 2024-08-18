@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单标签</title>
+</head>
+<body>
+    <div style="margin-left: 10%; margin-bottom: 10%;">
+        <p>action: 表单提交的url, 往何处提交数据, 如果不写, 默认提交当前页面</p>
+        <p>method: 提交数据的方式, 有get和post两种, 默认是get</p>
+        <p>get: 在url后面跟?key=value的形式拼接表单数据, 如/xxx.html?username=admin&age=20</p>
+        <p>post: 表单数据放在请求体中, 安全性比get高, 可以通过隐藏域来防止表单数据被篡改</p>
+    </div>
+
+    <form action="" method="get" style="margin: 0 10%;">
+        <span style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 18px; text-align: center; margin-right: 18px;">用户名: <input type="text"   name="username"></span>
+        <span style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 18px; text-align: center;">年龄: <input type="text"     name="username"></span>
+        <span style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 18px; text-align: center;">
+            <input type="submit" value="提交"></span>
+    </form>
+</body>
+</html>

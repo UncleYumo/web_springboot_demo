@@ -1,0 +1,9 @@
+h1 {
+    color: rgb(87, 86, 87);
+}
+
+.news-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-引入方式</title>
+</head>
+<body>
+    <div class="main-container">
+        <div><img id="bulb" src="../resources/image/extinguished_bulb.png" alt="测试图片" width=20%></div>
+        <div>
+            <span>
+                <button onclick="light_bulb()">点亮</button>
+                <button onclick="extinguish_bulb()">熄灭</button>
+            </span>
+        </div>
+        <div><input style="text-align: center;" id="input" type="text" value="revolicise "></div>
+        <div>
+            <span>
+                <input type="checkbox" name="hobby" value="电影">Movie
+                <input type="checkbox" name="hobby" value="旅游">Travel
+                <input type="checkbox" name="hobby" value="游戏">Game
+            </span>
+        </div>
+        <div>
+            <span>
+                <button id="select_all">全选</button>
+                <button id="select_reverse">反选</button>
+            </span>
+        </div>
+    </div>
+    
+     <script>
+        const extinguished_bulb_path = "../resources/image/extinguished_bulb.png";
+        const light_bulb_path = "../resources/image/light_bulb.png";
+        
+        const light_bulb = (()=>{
+            var bulb = document.getElementById("bulb");
+            bulb.src = light_bulb_path;
+        })
+        const extinguish_bulb = (()=>{
+            var bulb = document.getElementById("bulb");
+            bulb.src = extinguished_bulb_path;
+        })
+
+        const input_box = document.getElementById("input");
+        input_box.onmouseover = (()=>{
+            let text = input_box.value;
+            input_box.value = text.toLocaleUpperCase();
+        });
+        input_box.onmouseout = (()=>{
+            let text = input_box.value;
+            input_box.value = text.toLocaleLowerCase();
+        });
+
+        select_all.onclick = (()=>{
+            let checkboxes = document.getElementsByName("hobby");
+            let select_all = document.getElementById("select_all");
+            for(let i=0;i<checkboxes.length;i++){
+                checkboxes[i].checked = true;
+            };
+        });
+
+        select_reverse.onclick = (()=>{
+            let checkboxes = document.getElementsByName("hobby");
+            let select_all = document.getElementById("select_all");
+            for(let i=0;i<checkboxes.length;i++){
+                checkboxes[i].checked = !checkboxes[i].checked;
+            };
+        });
+
+        const hobbies = document.getElementsByName("hobby");
+        for(let i=0;i<hobbies.length;i++){
+            hobbies[i].onmouseover = (()=>{
+                hobbies[i].checked = !hobbies[i].checked;
+            });
+        };
+
+
+     </script>
+</body>
+</html>
+
+<style>
+    .main-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5% 0 5% 0;
+    }
+</style>
