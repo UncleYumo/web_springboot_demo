@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax-异步请求学习</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <p>https://apifoxmock.com/m1/5017378-4677041-default/mock/demo/list</p>
+        <button onclick="getData()">请求数据</button>
+        <p style="margin: 5%;"><span id="result"></span></p>
+        <!-- {"code":60,"message":"tempor mollit eiusmod laboris","data":[{"id":4,"name":"马云","image":"http://dummyimage.com/400x400","gender":2,"job":"讲师","entrydate":"2018-09-11","updatetime":"2008-01-20 07:21:55"},{"id":4,"name":"爱新觉罗","image":"http://dummyimage.com/400x400","gender":1,"job":"学生","entrydate":"2005-02-13","updatetime":"1976-04-10 20:57:39"},{"id":6,"name":"爱新觉罗","image":"http://dummyimage.com/400x400","gender":2,"job":"讲师","entrydate":"1981-06-01","updatetime":"1977-09-04 13:43:51"}]} -->
+    </div>
+</body>
+</html>
+
+<script>
+    const getData = (()=>{
+        // 创建 XMLHttpRequest 对象
+        var request = new XMLHttpRequest();
+
+        // 发送异步请求
+        request.open('GET', 'https://apifoxmock.com/m1/5017378-4677041-default/mock/demo/list');
+        request.send();
+
+        // 监听请求状态变化
+        request.onreadystatechange = function() {
+            if (request.readyState === 4 && request.status === 200) {
+                // 请求成功
+                var result = document.getElementById('result');
+                result.innerHTML = request.responseText;
+            }
+        }
+    })
+</script>

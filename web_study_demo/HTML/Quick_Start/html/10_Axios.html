@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios-Quick Start</title>
+    <script src="../js/axios-0.18.0.js"></script>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h1>Axios-Quick Start</h1>
+            <button onclick="getData()">Get Data</button>
+            <div id="res"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    // var data;
+    // const vue = new Vue({
+    //     el: '#app',
+    //     data: {
+    //         datas: []
+    //     },
+    //     methods: {
+    //         getData() {
+    //             // axios({
+    //             //     method: "get",
+    //             //     url: "https://apifoxmock.com/m1/5017378-4677041-default/mock/demo/list",
+    //             // }).then(result => {
+    //             //     this.datas = result.data.data;
+    //             //     console.log("调用成功")
+    //             // })
+    //         }
+    //     }
+    // })
+    const getData = (()=>{
+        // 清除原有数据
+        let res = document.getElementById("res");
+        while(res.hasChildNodes()){
+            res.removeChild(res.firstChild);
+        }
+        let datas;
+        axios.get("https://apifoxmock.com/m1/5017378-4677041-default/mock/demo/list").then(result=>{
+            datas = result.data.data;
+            console.log("调用成功");
+            for(let i=0;i<datas.length;i++){
+                let span = document.createElement("span");
+                for(let key in datas[i]){
+                    let p = document.createElement("p");
+                    p.innerHTML = key + ":" + datas[i][key];
+                    span.appendChild(p);
+                }
+                document.getElementById("res").appendChild(span);
+                document.getElementById("res").appendChild(document.createElement("br"));
+            }
+        })
+    })
+</script>
