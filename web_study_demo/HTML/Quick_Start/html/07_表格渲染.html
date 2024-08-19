@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格渲染-HTML</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1" width="70%" align="center" cellspacing="0">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>成绩</th>
+                <th>等级</th>
+            </tr>
+            <tr v-for="(user, index) in users">
+                <th>{{index+1}}</th>
+                <th>{{user.name}}</th>
+                <th>{{user.age}}</th>
+                 <th v-show="user.gender == 1">男</th>
+                 <th v-show="user.gender == 2">女</th>
+                <th>{{user.score}}</th>
+                <th v-if="user.score >= 90">优秀</th>
+                <th v-else-if="user.score >= 80">良好</th>
+                <th v-else-if="user.score >= 60">及格</th>
+                <th v-else style="color: tomato;">不及格</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            users: [{
+                name: "Tom",
+                age: 20,
+                gender: 1,
+                score: 78
+            },{
+                name: "Rose",
+                age: 18,
+                gender: 2,
+                score: 86
+            },{
+                name: "Jerry",
+                age: 26,
+                gender: 1,
+                score: 90
+            },{
+                name: "Tony",
+                age: 30,
+                gender: 1,
+                score: 52
+            },{
+                name: "Lucy",
+                age: 22,
+                gender: 2,
+                score: 70
+            }]
+        },
+        methods: {
+            
+        },
+    })
+</script>

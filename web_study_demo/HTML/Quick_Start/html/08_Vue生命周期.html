@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue生命周期</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+        <p>{{ message }}</p>
+    </div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        },
+        methods: {
+
+        },
+        // 生命周期钩子，在实例初始化之后调用，即在挂载之后调用
+        mounted() {
+            console.log('mounted - Vue挂载完成')
+        },
+    })
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件语句</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <span>
+            年龄<input type="text" v-model="age">
+        </span>
+            <span v-if="age <= 35">年轻人 | 35岁及以下</span>
+            <span v-else-if="age > 35 && age <= 40">青年人 | 35-40岁</span>
+            <span v-else-if="age > 40 && age <= 50">中年人 | 40-50岁</span>
+            <span v-else>老年人 | 50岁以上</span>
+            <h1 v-show="num % 2 === 0">{{num}}</h1>
+        <div>
+            <div v-for="(addr, index) in addrs">
+                <button :id="index">{{addr}} {{index}}</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script lang="javascript">
+    const app = new Vue({
+            el: '#app',
+            data: {
+                age: 18,
+                num: 0,
+                addrs: ['北京', '上海', '广州', '深圳', '杭州', '南京', '重庆'],
+            },
+            methods: {
+                changeNum() {
+                    this.num++;
+                },
+            }
+        })
+    app.changeNum();
+    for (let i = 0; i < app.addrs.length; i+=2) {
+        const button = document.getElementById(i)
+        button.onclick = function() {
+            // app.changeNum();
+            console.log(i);
+            
+        }
+    }
+</script>
+
+<style>
+    div span {
+        margin: 10px;
+    }
+</style>
