@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.itheima</groupId>
+    <artifactId>maven-project01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+</project>
+
+    <!-- 这是注释 -->
+    <!--
+    Maven依赖坐标的主要组成:
+    ————————————————————————————————————
+    groupId: 项目的唯一标识符，通常是域名反写
+    artifactId: 项目的名称，通常是工程的名称
+    version: 项目的版本号，通常是时间戳或日期
+    ————————————————————————————————————
+    packaging: 项目的类型，如jar、war、ear等
+    classifier: 附加的类型信息，如sources、javadoc等
+    -->
